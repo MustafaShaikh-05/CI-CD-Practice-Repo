@@ -1,30 +1,28 @@
-name: My First CI
+name: my-java-pipeline
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
-  hello:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Start
-        run: echo "Starting CI..."
+      - name: clone repo
+        uses: actions/checkout@v4
 
-      - name: Show Current Directory
-        run: pwd
-
-      - name: List Files
-        run: ls -la
-
-      - name: Show Java Version
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      
+      - name: verify java
         run: java -version
-
-      - name: List Files
-        run: ls -la
-
-      - name: Show Java Version
-        run: java -version
-
-      - name: Print Finish
-        run: echo "CI Completed Successfully!"
+      
+      - name: Final Build Project
+        run: mvn clean package
+    
