@@ -1,4 +1,4 @@
-name: my-java-pipeline
+name: my-ci-pipeline
 
 on:
   push:
@@ -6,23 +6,45 @@ on:
       - main
 
 jobs:
-  build:
+  addingProject:
 
     runs-on: ubuntu-latest
 
     steps:
-      - name: clone repo
+      - name: add your project
         uses: actions/checkout@v4
 
-      - name: Install Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '21'
+      - name: verify it
+        run: pwd
+
+      - name: check list
+        run: ls -la
+
+# name: my-java-pipeline
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: clone repo
+#         uses: actions/checkout@v4
+
+#       - name: Install Java
+#         uses: actions/setup-java@v4
+#         with:
+#           distribution: temurin
+#           java-version: '21'
       
-      - name: verify java
-        run: java -version
+#       - name: verify java
+#         run: java -version
       
-      - name: Final Build Project
-        run: mvn clean package
+#       - name: Final Build Project
+#         run: mvn clean package
     
