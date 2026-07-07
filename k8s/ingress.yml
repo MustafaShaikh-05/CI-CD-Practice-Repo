@@ -1,0 +1,30 @@
+# ------------------------------------------------------------------------------
+# Ingress (Stage 4).
+#
+# Purpose:
+# - Exposes the Service outside the cluster via an ingress controller.
+#
+# Notes:
+# - Requires an ingress controller (nginx, traefik, etc.).
+# - Update host to a real DNS name when you set one up.
+# ------------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: devops-learning
+  annotations:
+    # Example for nginx ingress; adjust per your controller.
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: devops-learning.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: devops-learning
+                port:
+                  number: 80
+

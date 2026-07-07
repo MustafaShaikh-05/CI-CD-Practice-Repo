@@ -1,0 +1,15 @@
+# ------------------------------------------------------------------------------
+# Git ignore rules (Stage 1).
+#
+# Purpose:
+# - Keeps build outputs and IDE files out of source control.
+# ------------------------------------------------------------------------------
+target/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+*.log
+

@@ -1,0 +1,17 @@
+# ------------------------------------------------------------------------------
+# Application configuration.
+#
+# Purpose:
+# - Central place for runtime configuration (good for Docker/Kubernetes later).
+# - Values here can be overridden by environment variables or command-line args.
+# ------------------------------------------------------------------------------
+server:
+  port: 8080
+
+spring:
+  application:
+    name: devops-learning-springboot
+
+app:
+  # Used to demonstrate ConfigMap-style configuration later.
+  greetingMessage: "Hello from DevOps Learning Spring Boot"

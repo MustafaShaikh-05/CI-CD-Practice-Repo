@@ -1,0 +1,15 @@
+# ------------------------------------------------------------------------------
+# Docker Compose file (Stage 3).
+#
+# Purpose:
+# - One-command local run that matches container runtime behavior.
+# - Easy place to add future dependencies if you ever choose to (e.g., DB) later.
+# ------------------------------------------------------------------------------
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      # Example of overriding config from the outside (good for ConfigMap later)
+      APP_GREETINGMESSAGE: "Hello from Docker Compose"

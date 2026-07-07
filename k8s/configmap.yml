@@ -1,0 +1,14 @@
+# ------------------------------------------------------------------------------
+# ConfigMap (Stage 4).
+#
+# Purpose:
+# - Demonstrates non-sensitive configuration injection.
+# - Here we override `app.greetingMessage` via an environment variable.
+# ------------------------------------------------------------------------------
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devops-learning-config
+data:
+  APP_GREETINGMESSAGE: "Hello from Kubernetes ConfigMap"
+

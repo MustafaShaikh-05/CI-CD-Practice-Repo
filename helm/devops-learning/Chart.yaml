@@ -1,0 +1,7 @@
+apiVersion: v2
+name: devops-learning
+description: Minimal Helm chart for the DevOps learning Spring Boot app.
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+

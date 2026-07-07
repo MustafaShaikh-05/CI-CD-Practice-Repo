@@ -1,0 +1,21 @@
+# ------------------------------------------------------------------------------
+# Service (Stage 4).
+#
+# Purpose:
+# - Stable networking endpoint for the pods behind the Deployment.
+# ------------------------------------------------------------------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-learning
+  labels:
+    app.kubernetes.io/name: devops-learning
+spec:
+  selector:
+    app.kubernetes.io/name: devops-learning
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
+

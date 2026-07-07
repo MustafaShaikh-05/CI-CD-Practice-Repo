@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "devops-learning.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "devops-learning.name" . }}
+spec:
+  selector:
+    app.kubernetes.io/name: {{ include "devops-learning.name" . }}
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: 8080
+  type: {{ .Values.service.type }}
+

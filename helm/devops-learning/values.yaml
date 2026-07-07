@@ -1,0 +1,27 @@
+# Default values for the Helm chart (Stage 5).
+image:
+  repository: devops-learning-springboot
+  tag: local
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  host: devops-learning.local
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+config:
+  greetingMessage: "Hello from Helm values"
+
