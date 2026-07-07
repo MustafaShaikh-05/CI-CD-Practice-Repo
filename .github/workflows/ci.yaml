@@ -20,5 +20,11 @@ jobs:
       - name: Show Java Version
         run: java -version
 
+      - name: List Files
+        run: ls -la
+
+      - name: Show Java Version
+        run: java -version
+
       - name: Print Finish
         run: echo "CI Completed Successfully!"
