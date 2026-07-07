@@ -1,4 +1,4 @@
-name: my-first-ci
+name: My First CI
 
 on:
   push:
@@ -8,5 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: first-step-of-hello-job
-        run: echo "Hii Everyone this is continuous integration"
+      - name: Print Start
+        run: echo "Starting CI..."
+
+      - name: Show Current Directory
+        run: pwd
+
+      - name: List Files
+        run: ls -la
+
+      - name: Show Java Version
+        run: java -version
+
+      - name: Print Finish
+        run: echo "CI Completed Successfully!"
