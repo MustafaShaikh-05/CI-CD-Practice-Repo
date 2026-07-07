@@ -1,0 +1,12 @@
+name: my-first-ci
+
+on:
+  push:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: first-step-of-hello-job
+        run: echo "Hii Everyone this is continuous integration"
