@@ -1,25 +1,45 @@
-name: my-ci-pipeline
+name: ci pipeline
 
 on:
   push:
     branches:
       - main
-
 jobs:
-  addingProject:
+  upload:
 
     runs-on: ubuntu-latest
 
     steps:
-      - name: add your project
+      - name: clone project
         uses: actions/checkout@v4
-
-      - name: verify it
+      
+      - name: Verify it
         run: pwd
-
-      - name: check list
+      
+      - name: List Files of Proejct
         run: ls -la
 
+      - name: Download Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      
+      - name: verify Java
+        run: java -version
+
+      - name: verify Maven
+        run: mvn -version
+      
+      - name: Run Maven
+        run: mvn clean package
+          
+      - name: Save Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: target/*.jar
 # name: my-java-pipeline
 
 # on:
