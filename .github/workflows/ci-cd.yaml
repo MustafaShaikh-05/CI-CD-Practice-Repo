@@ -19,23 +19,25 @@ jobs:
                 pwd
                 ls
     deploy:
+        needs: build
+
         runs-on: self-hosted
 
         steps:
             - name: Cloning in our Self hosted Runner
               uses: actions/checkout@v4
 
-            - name: Check in our self Runner
+            - name: Running K8S Files
               run: |
-                echo "Check User by Mustafa"
-                whoami
+                echo "First Config One"
+                kubectl apply -f k8s/configmap.yml
+            
+            - name: Deployment Yaml
+              run: |
+                kubectl apply -f k8s/deployment.yml
 
-                echo "Check Docker"
-                docker --version
+            - name: Apply Service
+              run: |
+                kubectl apply -f k8s/service.yml
 
-                echo "Checking By Mustafa Raza"
-                kubectl version --client
-
-                echo "Again Checking By Mustafa"
-                minikube status
 

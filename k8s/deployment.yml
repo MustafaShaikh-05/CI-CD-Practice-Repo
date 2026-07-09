@@ -25,7 +25,7 @@ spec:
         - name: app
           # Update this image to your registry when you start pushing images in CI/CD.
           image: mustafashaikh05/demo-project-img:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8081
           envFrom:
