@@ -27,7 +27,7 @@ spec:
           image: mustafashaikh05/demo-project-img:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: devops-learning-config
@@ -41,13 +41,13 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: 8081
+              port: 8080
             initialDelaySeconds: 3
             periodSeconds: 5
           livenessProbe:
             httpGet:
               path: /health
-              port: 8081
+              port: 8080
             initialDelaySeconds: 10
             periodSeconds: 10
 
