@@ -33,3 +33,9 @@ jobs:
                 echo "Check Docker"
                 docker --version
 
+                echo "Checking By Mustafa Raza"
+                kubectl version --client
+
+                echo "Again Checking By Mustafa"
+                minikube status
+

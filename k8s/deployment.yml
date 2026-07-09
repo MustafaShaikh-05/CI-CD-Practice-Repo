@@ -24,10 +24,10 @@ spec:
       containers:
         - name: app
           # Update this image to your registry when you start pushing images in CI/CD.
-          image: devops-learning-springboot:local
+          image: mustafashaikh05/demo-project-img:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           envFrom:
             - configMapRef:
                 name: devops-learning-config
@@ -41,13 +41,13 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 8081
             initialDelaySeconds: 3
             periodSeconds: 5
           livenessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 8081
             initialDelaySeconds: 10
             periodSeconds: 10
 
