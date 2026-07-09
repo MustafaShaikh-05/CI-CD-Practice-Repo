@@ -1,0 +1,35 @@
+name: ci-cd pipeline
+
+on:
+  push:
+    branches:
+        - main
+jobs:
+    build:
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Clone Project
+              uses: actions/checkout@v4
+
+            - name: Check Project
+              run: |
+                echo "Checking Files and Folder"
+                pwd
+                ls
+    deploy:
+        runs-on: self-hosted
+
+        steps:
+            - name: Cloning in our Self hosted Runner
+              uses: actions/checkout@v4
+
+            - name: Check in our self Runner
+              run: |
+                echo "Check User by Mustafa"
+                whoami
+
+                echo "Check Docker"
+                docker --version
+
