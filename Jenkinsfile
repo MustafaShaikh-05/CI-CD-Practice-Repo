@@ -1,22 +1,23 @@
 pipeline{
-    agent any
+    agents any
+
+    environment{
+        NAME = "Mustafa"
+        PRACTICE = "CI/CD Pipeline"
+    }
 
     stages{
-        stage('Demo Building From Jenkins File'){
+        stage('Test Printing'){
             steps{
-                sh 'mvn clean package'
+                echo "Printing Environment Values"
+                sh "echo ${PRACTICE}"
             }
-    }
-    }
-
-     post {
-        success {
-            echo 'Build Successful!'
         }
-
-        failure {
-            echo 'Build Failed!'
+        stage('One More Printing'){
+            steps{
+                echo "Now Printing Name"
+                sh "echo ${NAME}"
+            }
         }
     }
 }
-
